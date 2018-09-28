@@ -1,18 +1,12 @@
 <?php
 /**
- * Inline Documentation
- */
-
-
+* Inline Help Manager
+*/
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-
-$pn_documentation = new PostmediaNewsroomDocumentation();
-
-
-class PostmediaNewsroomDocumentation {
+class HelpManager {
 
 	function __construct() {
 		add_action( 'init', array( $this, 'init' ) );
@@ -29,8 +23,8 @@ class PostmediaNewsroomDocumentation {
 	}
 
 	function admin_enqueues() {
-		wp_enqueue_style( 'postmedia_documentation_css', PM_NEWSROOM_URI . 'css/documentation.css' );
-		wp_enqueue_script( 'postmedia_documentation_js', PM_NEWSROOM_URI . 'js/documentation.js' );
+		wp_enqueue_style( 'help_manager_css', PM_NEWSROOM_URI . 'css/documentation.css' );
+		wp_enqueue_script( 'help_manager_js', PM_NEWSROOM_URI . 'js/documentation.js' );
 	}
 
 	function help_menus( $contextual_help, $screen_id, $screen ) {
@@ -114,7 +108,7 @@ class PostmediaNewsroomDocumentation {
 	}
 
 	function json_feedback_email() {
-		$_recipients = array( 'cjaimet@postmedia.com' ); // *very* temporarily hard code this
+		$_recipients = array( 'cmjaimet@gmail.com' ); // *very* temporarily hard code this
 		if ( ! isset( $_POST['nonce'] ) ) {
 			return false;
 		}
@@ -139,3 +133,5 @@ class PostmediaNewsroomDocumentation {
 		die();
 	}
 }
+
+new HelpManager();
