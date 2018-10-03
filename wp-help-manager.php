@@ -13,6 +13,7 @@
 * Author URI:        https://github.com/cmjaimet
 *
 */
+namespace HelpManager;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
